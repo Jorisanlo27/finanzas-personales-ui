@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import api from "../api/axiosConfig";
-import TiposPagoCrud from "../components/tipos_pago/TiposPagoCrud";
+import TiposPagoCrud from "../components/TiposPagoCrud";
 
 function TiposPago() {
     const [tiposPago, setTiposPago] = useState([]);
