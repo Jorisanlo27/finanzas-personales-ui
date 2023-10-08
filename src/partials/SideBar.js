@@ -64,7 +64,7 @@ const SideBar = () => {
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/" class="nav-link">
+                                    <a href="/tiposPago" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Tipos Pago</p>
                                     </a>
