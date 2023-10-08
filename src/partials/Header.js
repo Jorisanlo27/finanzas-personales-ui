@@ -10,12 +10,12 @@ const Header = () => {
             </ul>
             <ul className="navbar-nav ml-auto">
                 <li className="nav-item">
-                    <a className="nav-link" data-widget="fullscreen" href="/" role="button">
+                    <a className="nav-link" data-widget="fullscreen" href="#" role="button">
                         <i className="fas fa-expand-arrows-alt"></i>
                     </a>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="/" role="button">
+                    <a className="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
                         <i className="fas fa-th-large"></i>
                     </a>
                 </li>
