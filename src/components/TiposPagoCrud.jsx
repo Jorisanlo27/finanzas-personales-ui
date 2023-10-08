@@ -1,6 +1,6 @@
 import { useState } from "react";
-import api from "../../api/axiosConfig";
-import List from "../List";
+import api from "../api/axiosConfig";
+import List from "./List";
 
 const TiposPagoCrud = ({ load, tiposPago }) => {
 
