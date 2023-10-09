@@ -1,8 +1,11 @@
 import { useState } from "react";
+import { useLocation } from 'react-router-dom';
 import api from "../api/axiosConfig";
 import List from "./List";
 
-const TiposPagoCrud = ({ load, tiposPago }) => {
+
+const TiposCrud = ({ load, tipos }) => {
+  const location = useLocation().pathname + "/";
 
   const [id, setId] = useState(0);
   const [descripcion, setDescripcion] = useState("");
@@ -10,7 +13,7 @@ const TiposPagoCrud = ({ load, tiposPago }) => {
 
   async function saveOrUpdate(event) {
     event.preventDefault();
-    await api.post("/tiposPago/", {
+    await api.post(location, {
       id: id,
       descripcion: descripcion,
       estado: estado
@@ -26,14 +29,14 @@ const TiposPagoCrud = ({ load, tiposPago }) => {
     setEstado(false);
   }
 
-  async function editTiposPago(tiposPago) {
-    setId(tiposPago.id);
-    setDescripcion(tiposPago.descripcion);
-    setEstado(tiposPago.estado);
+  async function editTipo(tipos) {
+    setId(tipos.id);
+    setDescripcion(tipos.descripcion);
+    setEstado(tipos.estado);
   }
 
-  async function deleteTiposPago(id) {
-    await api.delete("/tiposPago/" + id);
+  async function deleteTipo(id) {
+    await api.delete(location + id);
     load();
   }
 
@@ -64,7 +67,7 @@ const TiposPagoCrud = ({ load, tiposPago }) => {
                 </div>
 
                 <div className="form-group my-4">
-                  <label className="me-3">State</label>
+                  <label className="me-3">Status</label>
                   <input
                     type="checkbox"
                     className="ml-2"
@@ -88,9 +91,9 @@ const TiposPagoCrud = ({ load, tiposPago }) => {
         </div>
         <div className="col">
           <List
-            items={tiposPago}
-            edit={editTiposPago}
-            remove={deleteTiposPago}
+            items={tipos}
+            edit={editTipo}
+            remove={deleteTipo}
           />
         </div>
       </div>
@@ -98,4 +101,4 @@ const TiposPagoCrud = ({ load, tiposPago }) => {
   );
 };
 
-export default TiposPagoCrud;
+export default TiposCrud;
