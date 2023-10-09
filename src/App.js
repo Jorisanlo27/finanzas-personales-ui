@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from './pages/Dashboard';
 import TiposEgresos from './pages/TiposEgresos';
+import TiposIngresos from './pages/TiposIngresos';
 import TiposPago from './pages/TiposPago';
 import Footer from './partials/Footer';
 import Header from './partials/Header';
@@ -17,6 +18,7 @@ function App() {
           <Route path="/">
             <Route index element={<Dashboard />} />
             <Route path="/tiposEgresos" element={<TiposEgresos />} />
+            <Route path="/tiposIngresos" element={<TiposIngresos />} />
             <Route path="/tiposPago" element={<TiposPago />} />
             <Route path="*" element={<Dashboard />} />
           </Route>
