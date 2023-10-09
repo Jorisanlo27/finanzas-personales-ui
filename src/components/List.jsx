@@ -1,4 +1,5 @@
 import React from "react";
+import "../App.css";
 
 const List = ({ items, edit, remove }) => {
   return (
@@ -6,8 +7,8 @@ const List = ({ items, edit, remove }) => {
       <thead className="thead-light">
         <tr>
           <th></th>
-          <th scope="col" style={{ width: "55%" }}>Descripcion</th>
-          <th scope="col" style={{ width: "15%" }}>Estado</th>
+          <th scope="col" style={{ width: "55%" }}>Name</th>
+          <th scope="col" style={{ width: "15%" }}>Status</th>
           <th scope="col"></th>
         </tr>
       </thead>
@@ -17,9 +18,9 @@ const List = ({ items, edit, remove }) => {
             <tr>
               <th scope="row">{index + 1}</th>
               <td className="text-left">
-                <a className="text-decoration" href="#" onClick={() => edit(item)}>
+                <div className="text-primary text-decoration pointer" onClick={() => edit(item)}>
                   <u>{item.descripcion}</u>
-                </a>
+                </div>
               </td>
               <td><small className={"badge badge-" + (item.estado ? "success" : "danger")}>{item.estado ? "Activo" : "Inactivo"}</small></td>
               <td className="text-right">
