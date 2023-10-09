@@ -1,6 +1,7 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from './pages/Dashboard';
+import TiposEgresos from './pages/TiposEgresos';
 import TiposPago from './pages/TiposPago';
 import Footer from './partials/Footer';
 import Header from './partials/Header';
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/">
             <Route index element={<Dashboard />} />
+            <Route path="/tiposEgresos" element={<TiposEgresos />} />
             <Route path="/tiposPago" element={<TiposPago />} />
             <Route path="*" element={<Dashboard />} />
           </Route>
