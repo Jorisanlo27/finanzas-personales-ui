@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ClasificacionEgresos from './pages/ClasificacionEgresos';
 import Dashboard from './pages/Dashboard';
 import TiposEgresos from './pages/TiposEgresos';
 import TiposIngresos from './pages/TiposIngresos';
@@ -19,6 +20,7 @@ function App() {
             <Route index element={<Dashboard />} />
             <Route path="/tiposEgresos" element={<TiposEgresos />} />
             <Route path="/tiposIngresos" element={<TiposIngresos />} />
+            <Route path="/clasificacionEgresos" element={<ClasificacionEgresos />} />
             <Route path="/tiposPago" element={<TiposPago />} />
             <Route path="*" element={<Dashboard />} />
           </Route>
