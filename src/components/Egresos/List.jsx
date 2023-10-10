@@ -12,7 +12,7 @@ const List = ({ items, edit, remove }) => {
           <th scope="col">Classification</th>
           <th scope="col">Payment type</th>
           <th scope="col">Sum</th>
-          <th scope="col" style={{ width: "15%" }}>Status</th>
+          <th scope="col" className="text-center" style={{ width: "15%" }}>Status</th>
           <th scope="col"></th>
         </tr>
       </thead>
