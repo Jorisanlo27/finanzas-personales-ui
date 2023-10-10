@@ -17,73 +17,73 @@ const SideBar = () => {
                     </div>
                 </div>
 
-                <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <li class="nav-item">
-                            <a href="/" class="nav-link active">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <nav className="mt-2">
+                    <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <li className="nav-item">
+                            <a href="/" className="nav-link active">
+                                <i className="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="/" class="nav-link">
-                                <i class="nav-icon fas fa-wallet"></i>
+                        <li className="nav-item">
+                            <a href="/" className="nav-link">
+                                <i className="nav-icon fas fa-wallet"></i>
                                 <p>
                                     Budget
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon far fa-envelope"></i>
+                        <li className="nav-item">
+                            <a href="#" className="nav-link">
+                                <i className="nav-icon far fa-envelope"></i>
                                 <p>
                                     CRUD's
-                                    <i class="fas fa-angle-left right"></i>
-                                    <span class="badge badge-info right">7</span>
+                                    <i className="fas fa-angle-left right"></i>
+                                    <span className="badge badge-info right">7</span>
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="/tiposEgresos" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                            <ul className="nav nav-treeview">
+                                <li className="nav-item">
+                                    <a href="/tiposEgresos" className="nav-link">
+                                        <i className="far fa-circle nav-icon"></i>
                                         <p>Tipos Egresos</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="/tiposIngresos" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                <li className="nav-item">
+                                    <a href="/tiposIngresos" className="nav-link">
+                                        <i className="far fa-circle nav-icon"></i>
                                         <p>Tipos Ingresos</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="/clasificacionEgresos" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                <li className="nav-item">
+                                    <a href="/clasificacionEgresos" className="nav-link">
+                                        <i className="far fa-circle nav-icon"></i>
                                         <p>Clasificaciones Egresos</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="/tiposPago" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                <li className="nav-item">
+                                    <a href="/tiposPago" className="nav-link">
+                                        <i className="far fa-circle nav-icon"></i>
                                         <p>Tipos Pago</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="/" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                <li className="nav-item">
+                                    <a href="/egresos" className="nav-link">
+                                        <i className="far fa-circle nav-icon"></i>
                                         <p>Egresos</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="/" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                <li className="nav-item">
+                                    <a href="/" className="nav-link">
+                                        <i className="far fa-circle nav-icon"></i>
                                         <p>Ingresos</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="/" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                <li className="nav-item">
+                                    <a href="/" className="nav-link">
+                                        <i className="far fa-circle nav-icon"></i>
                                         <p>Usuarios</p>
                                     </a>
                                 </li>
