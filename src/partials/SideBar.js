@@ -76,15 +76,15 @@ const SideBar = () => {
                                     </a>
                                 </li>
                                 <li className="nav-item">
-                                    <a href="/" className="nav-link">
+                                    <a href="/ingresos" className="nav-link">
                                         <i className="far fa-circle nav-icon"></i>
                                         <p>Ingresos</p>
                                     </a>
                                 </li>
                                 <li className="nav-item">
-                                    <a href="/" className="nav-link">
+                                    <a href="/fuentesIngresos" className="nav-link">
                                         <i className="far fa-circle nav-icon"></i>
-                                        <p>Usuarios</p>
+                                        <p>Fuentes ingresos</p>
                                     </a>
                                 </li>
                             </ul>

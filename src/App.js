@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ClasificacionEgresos from './pages/ClasificacionEgresos';
 import Dashboard from './pages/Dashboard';
 import Egresos from './pages/Egresos';
+import FuentesIngresos from './pages/FuentesIngresos';
+import Ingresos from './pages/Ingresos';
 import TiposEgresos from './pages/TiposEgresos';
 import TiposIngresos from './pages/TiposIngresos';
 import TiposPago from './pages/TiposPago';
@@ -23,7 +25,9 @@ function App() {
             <Route path="/tiposIngresos" element={<TiposIngresos />} />
             <Route path="/clasificacionEgresos" element={<ClasificacionEgresos />} />
             <Route path="/egresos" element={<Egresos />} />
+            <Route path="/ingresos" element={<Ingresos />} />
             <Route path="/tiposPago" element={<TiposPago />} />
+            <Route path="/fuentesIngresos" element={<FuentesIngresos />} />
             <Route path="*" element={<Dashboard />} />
           </Route>
         </Routes>
