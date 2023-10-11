@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import api from "../api/axiosConfig";
 import IngresosCrud from "../components/Ingresos/Crud";
 
-function Ingresos() {
+function Ingresos(list) {
     const [tiposIngresos, setTiposIngresos] = useState([]);
     const [fuentesIngresos, setFuentesIngresos] = useState([]);
     const [ingresos, setIngresos] = useState([]);
@@ -22,12 +22,18 @@ function Ingresos() {
         setFuentesIngresos(result3.data);
     }
 
-    return (
-        <div className="content-wrapper mt-3" style={{ minHeight: "86vh" }}>
-            <h1 className="text-center">CRUD - Ingresos</h1>
-            <IngresosCrud load={load} tipos={tiposIngresos} fuentes={fuentesIngresos} ingresos={ingresos} />
-        </div>
-    )
+    if (list === true) {
+        return (
+            <div className="content-wrapper mt-3" style={{ minHeight: "86vh" }}>
+                <h1 className="text-center">CRUD - Ingresos</h1>
+                <IngresosCrud load={load} tipos={tiposIngresos} fuentes={fuentesIngresos} ingresos={ingresos} list={list} />
+            </div>
+        )
+    } else {
+        return (
+            <IngresosCrud load={load} tipos={tiposIngresos} fuentes={fuentesIngresos} ingresos={ingresos} list={list} />
+        )
+    }
 }
 
 export default Ingresos;

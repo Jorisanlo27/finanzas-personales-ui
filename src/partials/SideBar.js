@@ -27,17 +27,9 @@ const SideBar = () => {
                                 </p>
                             </a>
                         </li>
-                        <li className="nav-item">
-                            <a href="/" className="nav-link">
-                                <i className="nav-icon fas fa-wallet"></i>
-                                <p>
-                                    Budget
-                                </p>
-                            </a>
-                        </li>
-                        <li className="nav-item">
+                        <li className="nav-item menu-open">
                             <a href="#" className="nav-link">
-                                <i className="nav-icon far fa-envelope"></i>
+                                <i className="nav-icon fas fa-wallet"></i>
                                 <p>
                                     CRUD's
                                     <i className="fas fa-angle-left right"></i>

@@ -24,8 +24,8 @@ function App() {
             <Route path="/tiposEgresos" element={<TiposEgresos />} />
             <Route path="/tiposIngresos" element={<TiposIngresos />} />
             <Route path="/clasificacionEgresos" element={<ClasificacionEgresos />} />
-            <Route path="/egresos" element={<Egresos />} />
-            <Route path="/ingresos" element={<Ingresos />} />
+            <Route path="/egresos" element={<Egresos list={true} />} />
+            <Route path="/ingresos" element={<Ingresos list={true} />} />
             <Route path="/tiposPago" element={<TiposPago />} />
             <Route path="/fuentesIngresos" element={<FuentesIngresos />} />
             <Route path="*" element={<Dashboard />} />

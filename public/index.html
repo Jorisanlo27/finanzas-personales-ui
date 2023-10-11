@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Dashboard</title>
+  <title>Finanzas Personales | ISO715</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet"
@@ -35,10 +35,12 @@
   <div id="root"></div>
 
   <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
   <!-- <script src="plugins/jquery/jquery.min.js"></script> -->
   <!-- jQuery UI 1.11.4 -->
-  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js" integrity="sha256-DI6NdAhhFRnO2k51mumYeDShet3I8AKCQf/tf7ARNhI=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"
+    integrity="sha256-DI6NdAhhFRnO2k51mumYeDShet3I8AKCQf/tf7ARNhI=" crossorigin="anonymous"></script>
   <!-- <script src="plugins/jquery-ui/jquery-ui.min.js"></script> -->
   <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
   <script>
@@ -60,11 +62,58 @@
   <script src="%PUBLIC_URL%/plugins/datatables-buttons/js/buttons.print.min.js"></script>
   <script src="%PUBLIC_URL%/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
   <script>
-    $(function () {
-      $("#example").DataTable({
+    $(document).ready(async () => {
+      let egresos = await fetch('http://localhost:2727/api/v1/egresos/').then((res) => res.json());
+      let ingresos = await fetch('http://localhost:2727/api/v1/ingresos/').then((res) => res.json());
+      let data = await egresos.concat(ingresos);
+
+      data.sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
+
+      const sumsByDescription = {};
+      egresos.map(item => {
+        const descripcion = item.clasificacionEgresos.descripcion;
+        const monto = item.monto;
+
+        if (sumsByDescription[descripcion] === undefined) {
+          sumsByDescription[descripcion] = 0;
+        }
+
+        sumsByDescription[descripcion] += monto;
+      });
+
+      egresos.map((item, index) => {
+        let des = item.clasificacionEgresos.descripcion;
+        $("#" + des).text(new Intl.NumberFormat('en-RD').format(sumsByDescription[des]));
+      });
+
+      let total = 0;
+      data.reduce((accumulator, item) => {
+        ((item.hasOwnProperty("tipoEgreso")) ?
+          total -= item.monto :
+          total += item.monto
+        )
+      }, 0);
+
+      $("#balance").text(new Intl.NumberFormat('en-RD').format(total));
+
+      let i = 1;
+      data.map((item) => {
+        let row = '<tr>' +
+          '<td>' + i + '</td>' +
+          '<td>' + item.descripcion + '</td>' +
+          '<td>' + ((item.hasOwnProperty("tipoEgreso")) ? item.tipoEgreso.descripcion : item.tipoIngresos.descripcion) + '</td>' +
+          ((item.hasOwnProperty("tipoEgreso")) ? '<td class="text-danger">RD$ -' + new Intl.NumberFormat('en-RD').format(item.monto) + '</td>' : '<td class="text-success">RD$ ' + item.monto + '</td>') +
+          '<td>' + item.fecha + '</td>' +
+          '</tr>';
+        $('#tbody').append(row);
+        i++
+      });
+
+      $('#example').DataTable({
         "responsive": true,
         "lengthChange": false,
         "autoWidth": false,
+        "pageLength": 5,
         buttons: {
           buttons: [
             { extend: 'excel', className: 'btn btn-success' },
@@ -72,6 +121,7 @@
           ]
         }
       }).buttons().container().appendTo('#example_wrapper .col-md-6:eq(0)');
+
     });
   </script>
   <!-- ChartJS -->

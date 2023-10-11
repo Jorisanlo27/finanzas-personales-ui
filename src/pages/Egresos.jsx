@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import api from "../api/axiosConfig";
 import EgresosCrud from "../components/Egresos/Crud";
 
-function Egresos() {
+function Egresos(list) {
     const [tiposEgresos, setTiposEgresos] = useState([]);
     const [clasificacionEgresos, setClasificacionEgresos] = useState([]);
     const [tiposPago, setTiposPago] = useState([]);
@@ -26,12 +26,18 @@ function Egresos() {
         setTiposPago(result4.data);
     }
 
-    return (
-        <div className="content-wrapper mt-3" style={{ minHeight: "86vh" }}>
-            <h1 className="text-center">CRUD - Egresos</h1>
-            <EgresosCrud load={load} tipos={tiposEgresos} clasificaciones={clasificacionEgresos} tiposPago={tiposPago} egresos={egresos} />
-        </div>
-    )
+    if (list === true) {
+        return (
+            <div className="content-wrapper mt-3" style={{ minHeight: "86vh" }}>
+                <h1 className="text-center">CRUD - Egresos</h1>
+                <EgresosCrud load={load} tipos={tiposEgresos} clasificaciones={clasificacionEgresos} tiposPago={tiposPago} egresos={egresos} list={list} />
+            </div>
+        )
+    } else {
+        return (
+            <EgresosCrud load={load} tipos={tiposEgresos} clasificaciones={clasificacionEgresos} tiposPago={tiposPago} egresos={egresos} list={list} />
+        )
+    }
 }
 
 export default Egresos;
