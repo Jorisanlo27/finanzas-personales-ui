@@ -68,7 +68,7 @@ const IngresosCrud = ({ load, tipos, fuentes, ingresos, list }) => {
     load();
   }
 
-  if (list === true) {
+  if (list.list === true) {
     return (
       <div className="mt-4" >
         <div className="row align-items-start">

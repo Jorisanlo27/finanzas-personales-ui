@@ -22,7 +22,7 @@ function Ingresos(list) {
         setFuentesIngresos(result3.data);
     }
 
-    if (list === true) {
+    if (list.list === true) {
         return (
             <div className="content-wrapper mt-3" style={{ minHeight: "86vh" }}>
                 <h1 className="text-center">CRUD - Ingresos</h1>

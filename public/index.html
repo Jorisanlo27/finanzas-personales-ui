@@ -66,11 +66,11 @@
       let egresos = await fetch('http://localhost:2727/api/v1/egresos/').then((res) => res.json());
       let ingresos = await fetch('http://localhost:2727/api/v1/ingresos/').then((res) => res.json());
       let data = await egresos.concat(ingresos);
-
       data.sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
 
       const sumsByDescription = {};
       egresos.map(item => {
+        console.log(item);
         const descripcion = item.clasificacionEgresos.descripcion;
         const monto = item.monto;
 
@@ -81,13 +81,13 @@
         sumsByDescription[descripcion] += monto;
       });
 
-      egresos.map((item, index) => {
+      egresos.filter(item => item.estado !== false).map((item, index) => {
         let des = item.clasificacionEgresos.descripcion;
         $("#" + des).text(new Intl.NumberFormat('en-RD').format(sumsByDescription[des]));
       });
 
       let total = 0;
-      data.reduce((accumulator, item) => {
+      data.filter(item => item.estado !== false).reduce((accumulator, item) => {
         ((item.hasOwnProperty("tipoEgreso")) ?
           total -= item.monto :
           total += item.monto
@@ -97,9 +97,8 @@
       $("#balance").text(new Intl.NumberFormat('en-RD').format(total));
 
       let i = 1;
-      data.map((item) => {
+      data.filter(item => item.estado !== false).map((item) => {
         let row = '<tr>' +
-          '<td>' + i + '</td>' +
           '<td>' + item.descripcion + '</td>' +
           '<td>' + ((item.hasOwnProperty("tipoEgreso")) ? item.tipoEgreso.descripcion : item.tipoIngresos.descripcion) + '</td>' +
           ((item.hasOwnProperty("tipoEgreso")) ? '<td class="text-danger">RD$ -' + new Intl.NumberFormat('en-RD').format(item.monto) + '</td>' : '<td class="text-success">RD$ ' + item.monto + '</td>') +
